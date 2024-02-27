@@ -5,6 +5,7 @@ import { config } from 'dotenv'
 import authRouter from './routes/auth.js'
 import userRouter from './routes/user.js'
 import verifyToken from './middlewares/verifyToken.js'
+import chatRouter from './routes/chat.js'
 
 config()
 
@@ -15,6 +16,7 @@ app.use(json())
 // Routes
 app.use("/v1/auth",authRouter)
 app.use("/v1/user",verifyToken,userRouter)
+app.use("/v1/chat",verifyToken,chatRouter)
 
 connect(process.env.MONGO_URL).then(() => {
     console.log('connected to mongodb');
