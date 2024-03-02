@@ -1,9 +1,10 @@
 import { Router } from "express";
-import { getRoom, sendMessage } from "../controllers/chat.js";
+import { getMessages, getRoom, sendMessage } from "../controllers/chat.js";
 
 const chatRouter = Router()
 
 chatRouter.get("/room",getRoom)
-chatRouter.post("/",sendMessage)
+chatRouter.post("/message",sendMessage)
+chatRouter.get("/message",getMessages)
 
 export default chatRouter
